@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             VStack {
-                Text("🎯🎯🎯\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
+                Text("🎯\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
                     .bold()
                     .kerning(1)
                     .multilineTextAlignment(.center)
