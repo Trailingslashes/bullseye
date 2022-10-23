@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
+    @State private var alertIsVisible: Bool = false
+    @State private var sliderValue: Double = 50.0
+
     var body: some View {
         VStack {
             VStack {
@@ -19,7 +21,7 @@ struct ContentView: View {
                     .lineSpacing(4)
                     .font(.title2)
             }
-        
+
             Text("89")
                 .font(.largeTitle)
                 .kerning(-1)
@@ -27,18 +29,23 @@ struct ContentView: View {
             HStack {
                 Text("1")
                     .bold()
-                Slider(value: .constant(50), in: 1.0...100)
+                Slider(value: self.$sliderValue, in: 1.0 ... 100)
                 Text("100")
                     .bold()
             }
-            Button(action: {}) {
+            Button(action: {
+                self.alertIsVisible = true
+            }) {
                 Text("Hit me")
-                    
             }
-    
+            .alert("Hello!!", isPresented: $alertIsVisible) {
+                Button("Awesome!") {}
+            } message: {
+                Text("This is my first pop-up")
             }
         }
     }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
