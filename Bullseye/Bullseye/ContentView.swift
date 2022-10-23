@@ -41,7 +41,8 @@ struct ContentView: View {
             .alert("Hello!!", isPresented: $alertIsVisible) {
                 Button("Awesome!") {}
             } message: {
-                Text("This is my first pop-up")
+                var roundedValue: Int = .init(self.sliderValue.rounded())
+                Text("The sliders value is: \(roundedValue)")
             }
         }
     }
